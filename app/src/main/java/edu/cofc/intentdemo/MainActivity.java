@@ -1,6 +1,7 @@
 package edu.cofc.intentdemo;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,15 +20,22 @@ public class MainActivity extends AppCompatActivity {
         button = (Button) findViewById(R.id.buttonId);
 
         i = new Intent(this, SecondActivity.class);
+        i.putExtra("testString", "This is a test string");
 
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                //startActivity(i);
+
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://kabriggs.people.cofc.edu"));
                 startActivity(i);
             }
         });
+
+
+
 
 
     }
